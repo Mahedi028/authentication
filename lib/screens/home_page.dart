@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/screens/login_screen.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -9,12 +10,19 @@ class HomePage extends StatelessWidget {
           title: Text('HomePage'),
           centerTitle: true,
           backgroundColor: Colors.purpleAccent,
+          actions: [
+            TextButton.icon(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
+                icon: Icon(Icons.logout),
+                label: Text(
+                  'Sign out',
+                ),
+                style: TextButton.styleFrom(primary: Colors.white))
+          ],
         ),
-        body: Center(
-            child: Text(
-          'Welcome to Homepage',
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        )),
       ),
     );
   }
